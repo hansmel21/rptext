@@ -1,0 +1,317 @@
+# Project Scout — Chapter 1 Full GDD
+**Working Title:** Chapter 1: The Night of Ash
+**Engine:** Godot 4 (GDScript)
+**Genre:** Top-Down 2D Pixel Art Action RPG
+**Art:** Pixel art — resolution and tile size TBD in art phase
+
+---
+
+## Context
+
+This document captures the complete game design for Chapter 1 of Project Scout. The repository is currently empty — Chapter 1 is the first playable build. It establishes all core systems (movement, melee, magic, hunger, taming, pets) and delivers the emotional throughline: a boy loses his world, survives alone, and bonds with his first companion.
+
+---
+
+## Characters
+
+| Character | Role | Notes |
+|-----------|------|-------|
+| **Kael** | Player (protagonist) | Young boy, sprite evolution Stage 1 of 4 |
+| **Mentor** | Guardian/teacher | Placeholder name. Has a jaguar companion. Stays behind during invasion — fate unknown until Ch.2 |
+| **Mentor's Jaguar** | Mentor's pet | Saves Kael during escape. Dies in isolated area. Does NOT become player pet |
+| **Village Chief** | Simple good man / conductor | Placeholder name. A respected tribesman with a teleportation ability. Found at the village outskirts near the wall. Not the betrayer — a genuinely good person |
+| **The Betrayer** | Traitor — opens the village for faders | A hidden villager/tribesman Kael does not personally know. Reveals themselves during the invasion and delivers the line: *"I'll bring you all back."* Background NPC; method of opening the village TBD |
+| **Faders** | Enemies | Corrupted humans — not monsters visually. Look human but wrong |
+| **Fader Leader** | Boss-tier antagonist | See lore section below |
+
+### Fader Leader — Lore
+- Approximately 600–700 years old; oldest living fader
+- Originally a human survivor of the original meteor impact
+- Was corrupted by mana fallout and became a fader
+- A healing mana beast ate him whole
+- Inside the beast he absorbed its healing factor and slowly reconstructed himself
+- Spent centuries as a prisoner of his own regenerating body before regaining consciousness
+- Now leads all faders; looks more "normal" than typical faders but is clearly still one
+- Most powerful fader in existence
+- **Ch.1 role:** May appear during invasion (distant silhouette or brief cutscene). Not directly fought in Ch.1
+
+---
+
+## Confirmed Dialogue
+
+| Speaker | Line | Moment |
+|---------|------|--------|
+| Mentor | *"Hold the sword lower. You're not trying to impress the wood. You're trying to survive what hits back."* | Training quest |
+| Mentor | *"If I tell you to run, you run. No questions."* | Invasion — final moment before sending Kael away |
+| The Betrayer | *"I'll bring you all back."* | Invasion cutscene — reveals themselves |
+| Kael | *"No… no, get up. You got me here. Please get up."* | Jaguar death scene |
+
+---
+
+## The 9 Pre-Invasion Quests
+
+All quests trigger by talking to an NPC or entering a zone. Quest markers visible in Ch.1 (removed in later chapters for hidden quests).
+
+| # | Quest Name | Trigger | Objective | System Taught |
+|---|-----------|---------|-----------|---------------|
+| 1 | **First Light** | Auto (game start) | Explore the village; talk to family members | Movement, NPC interaction |
+| 2 | **Father's Trade** | Talk to Father | Help father with pottery; receive The Pot as keepsake | Interact button, inventory item |
+| 3 | **Morning Training** | Talk to Mentor | Hit training dummy X times with wooden sword | Melee combat, 4-directional sword |
+| 4 | **Herb Gathering** | Mentor sends player | Collect herbs from the riverside fields | Exploration, resource gathering |
+| 5 | **Beast Care** | Talk to Mentor | Tend to Mentor's jaguar (feed it or groom it) | Pet interaction; Mentor explains taming |
+| 6 | **Fire Within** | Mentor calls player | Cast fireball at training targets X times | Fireball, mana meter HUD |
+| 7 | **Meet the Chief** | Quest marker → village outskirts | Find the Chief near the village wall — he has a teleportation ability and is there doing his own thing. Friendly, normal conversation; he's a respected and good man | World-building; player sees a conductor's ability in action |
+| 8 | **A Helping Hand** | Village NPC | Complete a small task for a villager | World-building, attachment to village |
+| 9 | **The Hunt** | Mentor | Scripted hunt cutscene → taming rhythm minigame → bond baby pet; Mentor teaches pet commands | Taming, pet commands (Follow/Attack/Stay/Recall/Scout) |
+
+After quest 9 completes → Invasion triggers automatically.
+
+### The Pot
+- A keepsake item crafted by Kael's father (master potter)
+- Kael always carries it — it represents home and family
+- No combat use in Ch.1; emotional/narrative weight
+
+### Taming Minigame (Quest 9 — The Hunt)
+- Scripted cutscene: Mentor and Kael track a mana beast; Mentor lands the hunt
+- Baby mana beast revealed in the den
+- Taming minigame: rhythmic Guitar Hero-style — scrolling note track, player hits inputs to match
+- Successful rhythm = bond formed, baby pet joins Kael
+- Mentor then teaches pet commands as a tutorial
+
+---
+
+## Invasion Sequence (Phase 2)
+
+**Trigger:** All 9 quests complete.
+
+**Layout:** Village is cornered in the game world map (one corner against the map boundary). The ONLY exit is a bridge crossing the river.
+
+**Sequence:**
+1. Invasion cutscene — faders flood in from the far corner of the village (opposite the bridge)
+2. Chaos: NPCs running, buildings on fire, faders spreading
+3. **The Betrayer** (hidden villager, unknown to Kael) reveals themselves during the chaos → delivers the line: *"I'll bring you all back."*
+4. Player + Mentor fight through (brief skirmish — player is weak, Mentor carries the fight)
+5. They reach the bridge — faders swarming behind them
+6. Mentor puts Kael on the jaguar's back → line: *"If I tell you to run, you run. No questions."*
+7. Tells jaguar to RUN
+8. Jaguar sprints across the bridge with Kael
+9. Faders flood onto the bridge chasing them — the bridge collapses under their weight
+10. Mentor is left on the village side — screen cuts as bridge falls
+
+**Mentor's fate:** Unknown within Ch.1. In Ch.2 Kael discovers the entire village died, implying the mentor died too.
+
+---
+
+## Isolated Area (Phase 3)
+
+Kael is alone on the far side of the collapsed bridge. The jaguar is badly wounded.
+
+### Zones
+| Zone | Description |
+|------|-------------|
+| Landing Point | Where jaguar drops Kael after crossing |
+| Jaguar's Rest | Small clearing — jaguar collapses and dies here |
+| Foraging Zone | Plants, berries, small creatures — food gathering |
+| Mana Practice Spot | Open area or ruined shrine — fireball practice targets |
+| Area Exit | Path out — triggers Ch.2 transition |
+
+### Events in Order
+1. **Arrival** — Jaguar collapses near the landing point
+2. **Death scene** — Jaguar dies; Kael's line plays: *"No… no, get up. You got me here. Please get up."*
+3. **Survive the Night** — Hunger meter activates; Kael must gather food from Foraging Zone
+4. **Mana Focus** — Practice fireball in the Mana Practice Spot
+5. **Bond Grows** — Baby pet uses its newly-learned commands; short interaction beats showing growing trust
+6. **New Path** — Kael and baby pet leave the isolated area → Chapter 2 title card: *"Chapter 2: Survive"*
+
+---
+
+## Village Map
+
+**Structure:** Single scrolling map (no hard screen transitions between most zones). Approximately 12 distinct areas.
+
+### Key Zones
+| Zone | Role |
+|------|------|
+| Village Center | Well, market stalls, NPCs gathering — heart of the village |
+| Residential Area | Family huts including Kael's home; meet family in Quest 1 |
+| Father's Workshop | Potter's area where The Pot is made (Quest 2) |
+| Training Yard | Wooden dummies, open space near Mentor's area (Quest 3) |
+| Mentor's Hut | Mentor's home + jaguar pen (Quests 3, 5, 6, 9) |
+| Herb/Riverside Fields | Near the river — gathering zone (Quest 4) |
+| River + Bridge | The only exit from the village; key to invasion escape |
+| Village Outskirts / Wall | Chief is found here (Quest 7); edge of the village |
+| Village Hunt Area | Beyond the village boundary — where The Hunt takes place (Quest 9) |
+| Village Gate/Corner | Where faders invade from — far corner from the bridge |
+
+---
+
+## Combat & Controls
+
+| Input | Action |
+|-------|--------|
+| WASD | Move |
+| Mouse | Aim |
+| Left Click | Wooden sword (4-directional melee swing, hitbox in front) |
+| Right Click | Fireball (travels toward mouse cursor) |
+| E | Interact (NPC dialogue, item pickup, etc.) |
+| Tab (or similar) | Pet command menu |
+
+**Training Dummy:** Interactive prop with visual hit feedback (animation/flash when struck).
+
+---
+
+## HUD Layout
+
+All bars displayed bottom-center, horizontal:
+
+```
+[ HP ████████░░ ] [ MANA ██████░░░░ ] [ HUNGER ████░░░░░░ ]
+```
+
+- HP bar: always visible once tutorial starts
+- Mana bar: appears when fireball is learned (Quest 6)
+- Hunger bar: appears when player reaches isolated area (Phase 3)
+- Quest markers: compass-style + world markers visible in Ch.1
+
+---
+
+## Pets
+
+### Build Selection Screen (Game Start)
+Before Chapter 1 begins, the player chooses a **starting build**. This determines both Kael's stat profile AND which mana beast appears in The Hunt den. The other two beasts are never available anywhere else — like Gen 1 starters.
+
+| Build | Starting Profile | Pet Species | Pet Role | Pairing Logic |
+|-------|-----------------|-------------|----------|--------------|
+| **Mage** | High magic, low physical | **Ocelot** | Combat — high damage, aggressive | Magic ranged + physical bruiser = full coverage |
+| **Warrior** | High physical, low magic | **White-Tailed Deer** | Healing/Buff — sustains warrior in melee | Tanky fighter + healing support = durable |
+| **Weakling** | Low everything | **Gray Fox** | Mesh — low early stats, scales fastest | Hidden power path; hardest start, highest ceiling |
+
+### Pet Details
+
+| Species | Role | Notes |
+|---------|------|-------|
+| **Ocelot** | Combat Pet | High damage, aggressive. Offensive powerhouse |
+| **White-Tailed Deer** | Healing/Buff Pet | No combat ability. 50 HP restore, applies buffs. Pure support |
+| **Gray Fox** | Mesh Pet | Low combat AND low healing early. Scales faster than others; unlocks a unique ability in later chapters. The "secret best" option |
+
+**Taming:** The chosen build's beast appears as the baby in The Hunt den. Player tames via rhythm minigame. Player names the pet at the moment of taming. The other two species do not appear anywhere in the game world.
+
+### Pet Commands (taught by Mentor in Quest 9)
+
+| Command | Behavior |
+|---------|---------|
+| **Follow** | Pet trails Kael at a close fixed distance |
+| **Stay** | Pet holds position — does not move from spot |
+| **Scout** | Pet roams freely ahead; moves independently, alerts to enemies |
+| **Recall** | Pet returns close to Kael but keeps some freedom of movement (not locked to player) |
+| **Attack** | Pet engages enemies using its combat style (see below) |
+
+### Pet Combat AI (in Attack mode)
+
+| Pet | Combat Behavior |
+|-----|----------------|
+| **Ocelot** | Closes distance and fights in melee — stays in the fight, high aggression |
+| **White-Tailed Deer** | Avoids taking damage by staying mobile; stays close enough to heal and buff Kael; can still be hit (not perfect avoidance) |
+| **Gray Fox** | Engages enemies when HP is high; retreats and disengages when HP drops low — leaves Kael temporarily without support until it recovers |
+
+---
+
+## Gameplay Systems — Introduction Order
+
+| System | First Introduced |
+|--------|----------------|
+| Basic movement | Quest 1 (auto) |
+| NPC interaction / dialogue | Quest 1 |
+| Inventory (keepsake) | Quest 2 |
+| Wooden sword melee | Quest 3 |
+| Resource gathering | Quest 4 |
+| Pet interaction | Quest 5 |
+| Fireball + mana meter | Quest 6 |
+| Taming minigame | Quest 9 |
+| Pet commands | Quest 9 |
+| Hunger meter | Isolated area |
+| Emotional narrative beats | Jaguar death scene |
+
+---
+
+## Godot 4 — Scenes to Build
+
+```
+scenes/
+  menus/
+    BuildSelection.tscn       # Pre-Ch.1 beast picker — Gray Fox / White-Tailed Deer / Ocelot
+  village/
+    VillageMap.tscn           # Main village (single scrolling map)
+    IsolatedArea.tscn         # Survival area (post-escape)
+  characters/
+    Player.tscn               # Kael — PlayerController, SpriteEvolution (stage 1)
+    Mentor.tscn               # NPC with dialogue tree, quest-giver
+    MentorJaguar.tscn         # AI escort → death sequence
+    Villager.tscn             # Reusable NPC template
+    ChiefNPC.tscn             # Quest 7 interaction
+    Betrayer.tscn             # Invasion cutscene NPC
+    Fader.tscn                # Enemy type — basic AI
+  pets/
+    CombatPet.tscn            # Ocelot
+    HealingPet.tscn           # White-Tailed Deer
+    MeshPet.tscn              # Gray Fox
+  systems/
+    QuestManager.tscn         # Autoload singleton — boolean flags per quest
+    HungerSystem.tscn         # Drain rate, food restore, HUD binding
+    TamingMinigame.tscn       # Rhythm input controller
+    PetCommandSystem.tscn     # Follow/Stay/Attack/Recall/Scout + per-pet combat AI
+  ui/
+    HUD.tscn                  # HP + Mana + Hunger bars (bottom-center)
+    QuestMarker.tscn          # World-space quest indicators
+    DialogueBox.tscn          # On-screen NPC dialogue with character movement
+  cutscenes/
+    InvasionCutscene.tscn     # Characters move on-screen + dialogue panels
+    JaguarDeathScene.tscn     # Emotional beat — Kael's line
+    BridgeCollapse.tscn       # Bridge destruction sequence
+```
+
+### Quest State Machine
+Autoload `QuestManager` singleton tracks boolean flags:
+```
+quest_1_started / quest_1_complete
+quest_2_started / quest_2_complete
+...
+quest_9_complete → invasion_trigger = true
+```
+
+---
+
+## Remaining Placeholders
+
+| Item | Status |
+|------|--------|
+| Pixel art resolution + tile size | TBD — art phase |
+| Mentor's name | TBD |
+| Chief's name | TBD |
+| Betrayer's identity / method | TBD |
+| Hunger drain rate | TBD — playtest |
+| Food types in isolated area | TBD — berries, mushrooms, small animals (suggested) |
+| Exact fader count in escape | TBD — balance in playtest |
+| Fader Leader's Ch.1 appearance | TBD — cameo or cut entirely until Ch.2 |
+
+---
+
+## Verification Checklist
+
+- [ ] Player (Kael) can roam village and talk to all NPCs
+- [ ] Quest 1–9 trigger and complete in correct sequence
+- [ ] The Pot appears in inventory after Quest 2
+- [ ] Training dummy responds to sword hits with visual feedback
+- [ ] Fireball travels toward mouse cursor
+- [ ] Mana bar appears only after Quest 6
+- [ ] Taming rhythm minigame launches, accepts input, and bonds pet on success
+- [ ] Pet responds to all 5 commands post-taming
+- [ ] Pet combat AI matches species behavior (Ocelot melee-aggressive, Deer mobile-support, Fox engage-retreat)
+- [ ] Invasion triggers after Quest 9 completes (not before)
+- [ ] Betrayer's line fires at correct invasion cutscene moment
+- [ ] Bridge collapse sequence plays correctly
+- [ ] Kael arrives in isolated area alone (mentor not present)
+- [ ] Jaguar death scene fires; Kael's dialogue line plays
+- [ ] Hunger meter activates in isolated area
+- [ ] Food gathering restores hunger
+- [ ] Chapter 2 title card plays when Kael exits the isolated area
