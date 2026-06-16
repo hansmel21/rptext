@@ -14,6 +14,25 @@ This document captures the complete game design for Chapter 1 of Project Scout. 
 
 ---
 
+## World Lore — Conductor Abilities
+
+Conductors are people who can use mana. Most have one of several **common abilities**. A rare few have **special/unique abilities**.
+
+### Common Abilities (most conductors have one)
+- **Taming** — bond with and command mana beasts
+- **Fireball** — basic offensive mana projection
+- **Healing** — mana-based restoration
+- **Water magic** — water manipulation
+
+### Special / Unique Abilities (extremely rare)
+- **Teleportation** (The Betrayer) — can teleport anything he can see to anywhere he can see
+- **Gravity manipulation** (Fader Leader) — his alone among all faders; no other fader has any power
+
+### Kael's Ability
+Kael is a **tamer** — taming is his core innate ability. He is a common conductor, not a special one. By the end of the game he becomes the most powerful tamer alive, but his foundation remains taming. The mentor teaches him fireball in Ch.1 as a basic combat skill — fireball is a common ability any conductor can learn; it is not Kael's specialty but a useful tool he can wield.
+
+---
+
 ## World Lore — Shades
 
 **Shades** are small concentrations of mana that form when a living body dies. They are the world's primary currency and energy source.
@@ -222,13 +241,13 @@ All bars displayed bottom-center, horizontal:
 ## Pets
 
 ### Build Selection Screen (Game Start)
-Before Chapter 1 begins, the player chooses a **starting build**. This determines both Kael's stat profile AND which mana beast appears in The Hunt den. The other two beasts are never available anywhere else — like Gen 1 starters.
+Before Chapter 1 begins, the player chooses a **starting build**. All three builds share **taming as their core ability** (Kael is always a tamer). The build changes his magic strength, taming tree access, and beast affinity.
 
-| Build | Starting Profile | Pet Species | Pet Role | Pairing Logic |
-|-------|-----------------|-------------|----------|--------------|
-| **Mage** | High magic, low physical | **Ocelot** | Combat — high damage, aggressive | Magic ranged + physical bruiser = full coverage |
-| **Warrior** | High physical, low magic | **White-Tailed Deer** | Healing/Buff — sustains warrior in melee | Tanky fighter + healing support = durable |
-| **Weakling** | Low everything | **Gray Fox** | Mesh — low early stats, scales fastest | Hidden power path; hardest start, highest ceiling |
+| Build | Magic | Taming Tree | Beast Affinity | Pet Species | Pairing Logic |
+|-------|-------|------------|----------------|-------------|--------------|
+| **Mage** | Strong | **Sealed** — cannot unlock new taming abilities | Balanced | **Ocelot** (Combat) | Powerful magic + combat pet for physical damage; taming doesn't grow |
+| **Warrior** | Weak | **Full access** — complete taming ability tree | Healing/docile beasts — combat beasts are nearly impossible to tame | **White-Tailed Deer** (Healing) | Physical fighter sustained by healing pet; best tamer but limited to gentle beasts |
+| **Weakling** | Weak | Partial | Mixed — everything is hard until a level threshold (TBD) | **Gray Fox** (Mesh) | Struggles at everything early; highest ceiling of all three builds past the threshold |
 
 ### Pet Details
 
