@@ -29,8 +29,9 @@ This document captures the complete game design for Chapter 1 of Project Scout. 
 
 - Faders are humans corrupted by mana fallout from the original meteor impact (~600–700 years ago)
 - They look human but are visibly wrong — not monsters, but something off about them
-- **Ability:** Gravity manipulation — their defining power as corrupted mana-users
-- They are led by the Fader Leader, the oldest and most powerful of their kind
+- **No special ability** — mindless, powerless, attack on instinct only
+- They are **mindless** — no powers, no reasoning, pure instinct
+- They are led by the Fader Leader, the only fader who retained consciousness and ability
 
 ---
 
@@ -63,7 +64,7 @@ The Fader Leader's ultimate goal is to **undo the meteor impact** — to erase m
 | **Mentor's Jaguar** | Mentor's pet | Saves Kael during escape. Dies in isolated area. Does NOT become player pet |
 | **Village Chief** | Simple good man / conductor | Placeholder name. A respected tribesman with a teleportation ability. Found at the village outskirts near the wall. Not the betrayer — a genuinely good person |
 | **The Betrayer** | Traitor — opens the village for faders | A simple villager with a teleportation ability (can teleport anything he can see to anywhere he can see). The Fader Leader found him and made him a deal: help execute the plan to undo the meteor and erase mana from the world. The Betrayer believes in this goal. He uses his ability to open passages in the village's defenses, letting the faders in. During the invasion he reveals himself and delivers the line: *"I'll bring you all back."* (He genuinely believes the plan will save/restore everyone) |
-| **Faders** | Enemies | Corrupted humans — not monsters visually. Look human but wrong |
+| **Faders** | Enemies | Corrupted humans — not monsters visually. Look human but wrong. **Mindless** — no powers, no reasoning. They swarm and attack on instinct |
 | **Fader Leader** | Boss-tier antagonist | See lore section below |
 
 ### Fader Leader — Lore
@@ -73,6 +74,7 @@ The Fader Leader's ultimate goal is to **undo the meteor impact** — to erase m
 - A healing mana beast ate him whole; inside the beast he absorbed its healing factor and slowly reconstructed himself over centuries
 - Spent hundreds of years as a prisoner of his own regenerating body before regaining consciousness and reasoning
 - Now leads all faders; looks more "normal" than typical faders but is clearly still one of them
+- The **only fader with a power** — gravity manipulation. All other faders are mindless and powerless
 - Most powerful fader in existence
 - His plan: erase the meteor impact from history (see *The Fader Leader's Plan* section above)
 - **Ch.1 role:** Shadow silhouette only during the invasion — no dialogue, no confrontation. His identity is not revealed to the player in Ch.1
