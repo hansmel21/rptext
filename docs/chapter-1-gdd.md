@@ -54,7 +54,7 @@ The Fader Leader's ultimate goal is to **undo the meteor impact** — to erase m
 
 | Character | Role | Notes |
 |-----------|------|-------|
-| **Kael** | Player (protagonist) | Young boy, sprite evolution Stage 1 of 4. Trained as a pottery craftsman (his father's trade) — the non-warrior in a warrior family |
+| **Kael** | Player (protagonist) | Young boy, sprite evolution Stage 1 of 4. Trained as a pottery craftsman (his father's trade) — the only non-warrior in a warrior family. Zero combat experience before Ch.1; everything the mentor teaches him is his first exposure to fighting and mana |
 | **Kael's Father** | Craftsman / potter | Makes The Pot. A simple craftsman in a family of warriors |
 | **Kael's Mother** | Village warrior | Fighter; part of the village's defense |
 | **Kael's Older Siblings** | Warriors | Follow their mother's path; warriors like her |
