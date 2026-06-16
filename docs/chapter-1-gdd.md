@@ -10,30 +10,72 @@
 
 This document captures the complete game design for Chapter 1 of Project Scout. The repository is currently empty — Chapter 1 is the first playable build. It establishes all core systems (movement, melee, magic, hunger, taming, pets) and delivers the emotional throughline: a boy loses his world, survives alone, and bonds with his first companion.
 
+**Note:** Project Scout is a spin-off of an existing webcomic. The Fader Leader and the main storyline belong to the webcomic's canon. This game explores a parallel/side story.
+
+---
+
+## World Lore — Shades
+
+**Shades** are small concentrations of mana that form when a living body dies. They are the world's primary currency and energy source.
+
+- **Beast shades:** Located in the stomach. Easy to extract. Commonly harvested — kill a beast, take the shade, spend it as money.
+- **Human shades:** Located in the center of the brain. Require cracking open the skull to access. **No one in the general population knows human shades exist.** Only the Fader Leader has discovered this.
+- **Power scaling:** The more shades a conductor collects, the stronger they become. Human shades yield significantly more power than beast shades.
+- **The secret:** The Fader Leader knows human shades exist and has been quietly using this knowledge. The systematic killing of humans during fader invasions is not random violence — it is shade harvesting.
+
+---
+
+## World Lore — Faders
+
+- Faders are humans corrupted by mana fallout from the original meteor impact (~600–700 years ago)
+- They look human but are visibly wrong — not monsters, but something off about them
+- **Ability:** Gravity manipulation — their defining power as corrupted mana-users
+- They are led by the Fader Leader, the oldest and most powerful of their kind
+
+---
+
+## The Fader Leader's Plan
+
+The Fader Leader's ultimate goal is to **undo the meteor impact** — to erase mana from the world entirely and return to the time before corruption.
+
+**The method:**
+1. Collect massive quantities of human shades by killing large populations
+2. Use the accumulated shade-power (combined with gravity manipulation) to travel back in time to the exact moment the meteor approached the planet
+3. At that moment, freeze time
+4. Signal the Betrayer (who has a teleportation ability) to teleport the meteor out of the planet's atmosphere
+5. Destroy the meteor before it can impact
+6. Result: mana never enters the world → no faders → the Fader Leader (and all faders) are freed from their corruption
+
+**Why the Fader Leader alone cares:** He is the only living being who remembers the world before mana. Everyone else alive was born into a mana-filled world and has no frame of reference for what was lost.
+
 ---
 
 ## Characters
 
 | Character | Role | Notes |
 |-----------|------|-------|
-| **Kael** | Player (protagonist) | Young boy, sprite evolution Stage 1 of 4 |
+| **Kael** | Player (protagonist) | Young boy, sprite evolution Stage 1 of 4. Trained as a pottery craftsman (his father's trade) — the non-warrior in a warrior family |
+| **Kael's Father** | Craftsman / potter | Makes The Pot. A simple craftsman in a family of warriors |
+| **Kael's Mother** | Village warrior | Fighter; part of the village's defense |
+| **Kael's Older Siblings** | Warriors | Follow their mother's path; warriors like her |
+| **Kael's Little Sister** | Child | 5 years old — the youngest in the family |
 | **Mentor** | Guardian/teacher | Placeholder name. Has a jaguar companion. Stays behind during invasion — fate unknown until Ch.2 |
 | **Mentor's Jaguar** | Mentor's pet | Saves Kael during escape. Dies in isolated area. Does NOT become player pet |
 | **Village Chief** | Simple good man / conductor | Placeholder name. A respected tribesman with a teleportation ability. Found at the village outskirts near the wall. Not the betrayer — a genuinely good person |
-| **The Betrayer** | Traitor — opens the village for faders | A hidden villager/tribesman Kael does not personally know. Reveals themselves during the invasion and delivers the line: *"I'll bring you all back."* Background NPC; method of opening the village TBD |
+| **The Betrayer** | Traitor — opens the village for faders | A simple villager with a teleportation ability (can teleport anything he can see to anywhere he can see). The Fader Leader found him and made him a deal: help execute the plan to undo the meteor and erase mana from the world. The Betrayer believes in this goal. He uses his ability to open passages in the village's defenses, letting the faders in. During the invasion he reveals himself and delivers the line: *"I'll bring you all back."* (He genuinely believes the plan will save/restore everyone) |
 | **Faders** | Enemies | Corrupted humans — not monsters visually. Look human but wrong |
 | **Fader Leader** | Boss-tier antagonist | See lore section below |
 
 ### Fader Leader — Lore
 - Approximately 600–700 years old; oldest living fader
-- Originally a human survivor of the original meteor impact
+- Originally a human survivor of the original meteor impact — the only living person who remembers the world before mana
 - Was corrupted by mana fallout and became a fader
-- A healing mana beast ate him whole
-- Inside the beast he absorbed its healing factor and slowly reconstructed himself
-- Spent centuries as a prisoner of his own regenerating body before regaining consciousness
-- Now leads all faders; looks more "normal" than typical faders but is clearly still one
+- A healing mana beast ate him whole; inside the beast he absorbed its healing factor and slowly reconstructed himself over centuries
+- Spent hundreds of years as a prisoner of his own regenerating body before regaining consciousness and reasoning
+- Now leads all faders; looks more "normal" than typical faders but is clearly still one of them
 - Most powerful fader in existence
-- **Ch.1 role:** May appear during invasion (distant silhouette or brief cutscene). Not directly fought in Ch.1
+- His plan: erase the meteor impact from history (see *The Fader Leader's Plan* section above)
+- **Ch.1 role:** Shadow silhouette only during the invasion — no dialogue, no confrontation. His identity is not revealed to the player in Ch.1
 
 ---
 
@@ -89,7 +131,7 @@ After quest 9 completes → Invasion triggers automatically.
 **Sequence:**
 1. Invasion cutscene — faders flood in from the far corner of the village (opposite the bridge)
 2. Chaos: NPCs running, buildings on fire, faders spreading
-3. **The Betrayer** (hidden villager, unknown to Kael) reveals themselves during the chaos → delivers the line: *"I'll bring you all back."*
+3. **The Betrayer** steps forward — he used his teleportation ability to open passages in the village's defenses for the faders. He reveals himself and delivers the line: *"I'll bring you all back."* He is not a villain to himself — he believes in the Fader Leader's plan
 4. Player + Mentor fight through (brief skirmish — player is weak, Mentor carries the fight)
 5. They reach the bridge — faders swarming behind them
 6. Mentor puts Kael on the jaguar's back → line: *"If I tell you to run, you run. No questions."*
@@ -111,7 +153,7 @@ Kael is alone on the far side of the collapsed bridge. The jaguar is badly wound
 |------|-------------|
 | Landing Point | Where jaguar drops Kael after crossing |
 | Jaguar's Rest | Small clearing — jaguar collapses and dies here |
-| Foraging Zone | Plants, berries, small creatures — food gathering |
+| Foraging Zone | All food sources: berries/mushrooms (gather), fruit/wild plants (collect), small animals (hunt with fireball), fish from a nearby stream/pool (catch) |
 | Mana Practice Spot | Open area or ruined shrine — fireball practice targets |
 | Area Exit | Path out — triggers Ch.2 transition |
 
