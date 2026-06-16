@@ -2,7 +2,7 @@
 **Working Title:** Chapter 1: The Night of Ash
 **Engine:** Godot 4 (GDScript)
 **Genre:** Top-Down 2D Pixel Art Action RPG
-**Art:** Pixel art — resolution and tile size TBD in art phase
+**Art:** Pixel art — 320×180 native resolution, 16×16 tiles, 16×32 character sprites. Upscaled 4× to 720p / 6× to 1080p in Godot.
 
 ---
 
@@ -348,7 +348,7 @@ quest_9_complete → invasion_trigger = true
 
 | Item | Status |
 |------|--------|
-| Pixel art resolution + tile size | TBD — art phase |
+| Pixel art resolution + tile size | **320×180 / 16×16 tiles / 16×32 characters** ✓ |
 | Mentor's name | TBD |
 | Chief's name | TBD |
 | Betrayer's identity / method | TBD |
