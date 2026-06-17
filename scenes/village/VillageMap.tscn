@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c000000000007"]
+
+[ext_resource type="PackedScene" path="res://scenes/characters/Player.tscn" id="1_playerscene"]
+[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn"            id="2_hudscene"]
+
+[node name="VillageMap" type="Node2D"]
+
+[node name="World" type="TileMap" parent="."]
+format = 2
+
+[node name="YSort" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="YSort" instance=ExtResource("1_playerscene")]
+position = Vector2(160, 90)
+
+[node name="NPCs" type="Node2D" parent="YSort"]
+
+[node name="Enemies" type="Node2D" parent="YSort"]
+
+[node name="HUD" parent="." instance=ExtResource("2_hudscene")]

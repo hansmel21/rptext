@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c000000000003"]
+
+[ext_resource type="Script" path="res://scripts/npcs/NPC.gd" id="1_npc"]
+
+[node name="NPC" type="Area2D"]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_npc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+text = "NPC"
+position = Vector2(-16, -24)

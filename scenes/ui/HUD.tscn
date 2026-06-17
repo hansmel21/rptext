@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://c000000000005"]
+
+[ext_resource type="Script" path="res://scripts/ui/HUD.gd" id="1_hud"]
+
+[node name="HUD" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1_hud")
+
+[node name="Bars" type="HBoxContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -14.0
+offset_right = -4.0
+offset_bottom = -4.0
+
+[node name="HPBar" type="ProgressBar" parent="Bars"]
+size_flags_horizontal = 3
+max_value = 100.0
+value = 100.0
+
+[node name="ManaBar" type="ProgressBar" parent="Bars"]
+size_flags_horizontal = 3
+max_value = 60.0
+value = 60.0
+visible = false
+
+[node name="HungerBar" type="ProgressBar" parent="Bars"]
+size_flags_horizontal = 3
+max_value = 100.0
+value = 100.0
+visible = false
