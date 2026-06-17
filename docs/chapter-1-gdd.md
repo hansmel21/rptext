@@ -124,7 +124,7 @@ All quests trigger by talking to an NPC or entering a zone. Quest markers visibl
 | 5 | **Beast Care** | Talk to Mentor | Tend to Mentor's jaguar (feed it or groom it) | Pet interaction; Mentor explains taming |
 | 6 | **Fire Within** | Mentor calls player | Cast fireball at training targets X times | Fireball, mana meter HUD |
 | 7 | **Meet the Chief** | Quest marker → village outskirts | Find the Chief near the village wall — he has a teleportation ability and is there doing his own thing. Friendly, normal conversation; he's a respected and good man | World-building; player sees a conductor's ability in action |
-| 8 | **A Helping Hand** | Village NPC | Complete a small task for a villager | World-building, attachment to village |
+| 8 | **A Helping Hand** | Elderly villager NPC | Fetch 1 medicine herb from the riverside fields (same area as Quest 4) and deliver it to an elderly villager | World-building, attachment to village |
 | 9 | **The Hunt** | Mentor | Scripted hunt cutscene → taming rhythm minigame → bond baby pet; Mentor teaches pet commands | Taming, pet commands (Follow/Attack/Stay/Recall/Scout) |
 
 After quest 9 completes → Invasion triggers automatically.
@@ -297,7 +297,151 @@ Before Chapter 1 begins, the player chooses a **starting build**. All three buil
 
 ---
 
-## Godot 4 — Scenes to Build
+## Technical Spec
+
+### Game State Machine
+The game moves through these states in order:
+```
+MAIN_MENU → BUILD_SELECTION → VILLAGE_PHASE → INVASION_CUTSCENE → ESCAPE_PHASE → ISOLATED_AREA → CH2_TRANSITION
+```
+A `GameManager` autoload singleton holds the current state and handles transitions.
+
+### Player Stats (Ch.1 starting values)
+| Stat | Value | Notes |
+|------|-------|-------|
+| HP | 100 | Full health at start |
+| Mana | 60 | Full mana at start |
+| Fireball cost | 15 mana | Per cast |
+| Mana regen | 5 / second | Passive; slow recovery |
+| Movement speed | 80 px/s | ~5 tiles/second at 16px tile scale |
+| Sword damage | 20 | Per hit |
+| Fireball damage | 30 | Per projectile |
+| Invincibility frames | 0.5 seconds | After taking a hit |
+
+### Death / Checkpoint System
+- HP reaches 0 → **restart at last autosave** (most recently completed quest)
+- Autosave triggers at the END of each quest completion
+- Autosave stores: current quest index, player position, inventory state
+- No death is possible during pure cutscene phases (player input is locked)
+
+### Enemy Stats — Fader (Ch.1)
+| Stat | Value |
+|------|-------|
+| HP | 40 |
+| Damage per hit | 15 |
+| Movement speed | 50 px/s (slower than player) |
+| Sight radius | 5 tiles |
+
+**Fader AI state machine:**
+```
+IDLE → (player enters sight radius) → CHASE → (adjacent to player) → ATTACK → CHASE → ...
+DEAD (HP = 0)
+```
+Faders do not use ranged attacks. They swarm on instinct — no coordination, no tactics.
+
+### Hunger System (Isolated Area only)
+| Parameter | Value |
+|-----------|-------|
+| Starting hunger | 100 |
+| Passive drain | 2 per minute |
+| At 0 hunger | HP drains 1 per 5 seconds until food is eaten |
+
+**Food restoration:**
+| Food | Hunger restored |
+|------|----------------|
+| Berries / mushrooms | +15 |
+| Fruit / wild plants | +20 |
+| Small animals (fireball hunt) | +35 |
+| Fish (catch from stream) | +40 |
+
+### Pet (Ch.1)
+- Baby pet does **not fight** in Ch.1 — it takes no damage and deals no damage
+- Pet is effectively invincible in Ch.1
+- Pet commands are functional (Follow/Stay/Scout/Recall) but Attack command does nothing yet
+- Pet HP and combat systems activate in Ch.2+
+
+### Taming Minigame
+| Parameter | Value |
+|-----------|-------|
+| Input keys | Arrow keys (Up / Down / Left / Right) |
+| Note count | 8–12 notes per attempt |
+| Fail state (Ch.1) | Baby retreats — player can retry immediately, unlimited attempts |
+| Fail state (Ch.2+) | **One shot only** — beast escapes permanently if minigame is failed |
+
+### Quest Completion Triggers
+| Quest | Completion condition |
+|-------|---------------------|
+| 1 — First Light | Talk to all family members (Father, Mother, at least 1 sibling, Little Sister) |
+| 2 — Father's Trade | Complete pottery interaction → receive The Pot in inventory |
+| 3 — Morning Training | Hit the training dummy **5 times** |
+| 4 — Herb Gathering | Collect **5 herbs** from the riverside fields |
+| 5 — Beast Care | Complete the jaguar care interaction (feed or groom — single action) |
+| 6 — Fire Within | Hit fireball targets **5 times** |
+| 7 — Meet the Chief | Reach the Chief and complete his dialogue |
+| 8 — A Helping Hand | Collect 1 medicine herb from the fields → deliver to elderly villager |
+| 9 — The Hunt | Complete the taming minigame successfully |
+
+### Dialogue System
+- **Advance:** E key or Spacebar
+- **All Ch.1 dialogue is linear** — no player choices
+- Dialogue pauses the game world (NPCs and enemies freeze while a dialogue box is open)
+- No cutscene skip in Ch.1 (first-time experience)
+
+### Audio Plan
+| Area / Moment | Music Direction | Style |
+|---------------|----------------|-------|
+| Village (quests 1–9) | Warm, tribal/folk feel | Flutes, light percussion, gentle rhythm |
+| Invasion | Urgent, tense | Heavy percussion, fast tempo, dissonance |
+| Isolated Area | Quiet and lonely | Minimal — single instrument or ambient only |
+| Taming minigame | Rhythmic cue track | Synced to the note input sequence |
+| Jaguar death scene | Silence or faint ambient | Let the dialogue carry the moment |
+
+**Sound effects needed (full list for implementation):**
+- Footstep (dirt/grass)
+- Sword swing
+- Sword hit (dummy / fader)
+- Fireball cast
+- Fireball impact
+- Player hurt
+- Player death (fade/thud)
+- Item pickup (herb, food)
+- Quest complete chime
+- NPC dialogue blip
+- Taming note hit (success)
+- Taming note miss (fail)
+- Bridge collapse rumble
+- Jaguar death (soft, emotional)
+
+### Camera
+- `Camera2D` with smooth follow (lerp smoothing)
+- Hard limits at map boundaries (camera never shows outside the map)
+- No zoom changes during normal gameplay
+- During cutscenes: camera may pan to specific characters/locations
+
+### Collision Layers
+| Layer | Used for |
+|-------|---------|
+| 1 — World | Walls, buildings, river, bridge |
+| 2 — Player | Kael |
+| 3 — Enemies | Faders |
+| 4 — NPCs | Villagers, Mentor, Chief, Jaguar |
+| 5 — Interactables | Herbs, dummies, food, NPC interaction zones |
+| 6 — Pet | Baby pet |
+| 7 — Projectiles | Fireball |
+
+### Phase Transitions
+All phase transitions use a **0.5s fade to black** then fade back in at the new location/state.
+
+| Transition | Trigger |
+|-----------|---------|
+| Build Selection → Village | Player confirms build choice |
+| Village → Invasion | Quest 9 completes |
+| Invasion → Isolated Area | Bridge collapse cutscene ends |
+| Isolated Area → Ch.2 | Kael exits the area through the exit point |
+
+---
+
+
 
 ```
 scenes/
