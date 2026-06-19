@@ -1,0 +1,14 @@
+~ start
+Mentor: Every conductor has a fire in them. Most people use it for practical things — a healing touch, a little warmth. You're going to learn yours differently.
+Mentor: Close your eyes. Feel the heat in your chest. Now push it out through your hand.
+=> END
+
+~ first_cast
+Mentor: There it is. That's your fireball. Don't celebrate — do it again.
+=> END
+
+~ complete
+Mentor: Ten times clean. You're not burning down the village. I'll call that a success.
+Kael: When do I get to use it for real?
+Mentor: Pray you never have to.
+=> END

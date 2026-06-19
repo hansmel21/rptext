@@ -1,0 +1,11 @@
+~ start
+Mentor: Hold the sword lower. You're not trying to impress the wood. You're trying to survive what hits back.
+Kael: Like this?
+Mentor: Better. Now — hit the dummy until I tell you to stop. Don't think. Move.
+=> END
+
+~ complete
+Mentor: Good. You're not as hopeless as you look.
+Kael: Was that a compliment?
+Mentor: Don't push it.
+=> END

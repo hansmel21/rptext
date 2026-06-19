@@ -1,0 +1,17 @@
+~ start
+Mentor: Kael — stay close. Do NOT stop moving.
+=> END
+
+~ betrayer_reveal
+Betrayer: I'll bring you all back.
+=> END
+
+~ bridge_approach
+Mentor: The bridge. Go — NOW.
+Kael: What about you?
+Mentor: I said go.
+=> END
+
+~ farewell
+Mentor: If I tell you to run, you run. No questions.
+=> END

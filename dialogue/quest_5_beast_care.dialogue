@@ -1,0 +1,16 @@
+~ start
+Mentor: She hasn't eaten since yesterday. She's particular — takes time with strangers.
+Kael: What do I do?
+Mentor: Be slow. Be calm. Let her decide when she's ready.
+=> END
+
+~ taming_lesson
+Mentor: You see how she looks at you now? That's the first step of taming — trust.
+Mentor: A mana beast won't bond with force. You earn it. The rhythm of taming is just the body following what the heart already started.
+Kael: The rhythm?
+Mentor: You'll understand when the time comes.
+=> END
+
+~ complete
+Mentor: She ate. Good.
+=> END

@@ -14,7 +14,6 @@ config/features=PackedStringArray("4.2", "GL Compatibility")
 GameManager="*res://scripts/autoloads/GameManager.gd"
 QuestManager="*res://scripts/autoloads/QuestManager.gd"
 AudioManager="*res://scripts/autoloads/AudioManager.gd"
-DialogueManager="*res://scripts/autoloads/DialogueManager.gd"
 HungerSystem="*res://scripts/autoloads/HungerSystem.gd"
 PetCommandSystem="*res://scripts/autoloads/PetCommandSystem.gd"
 

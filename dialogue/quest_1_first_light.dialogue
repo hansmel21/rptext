@@ -1,0 +1,15 @@
+~ start
+Mother: Kael, you're finally up. Don't wander too far today.
+Kael: I won't, Mom.
+=> END
+
+~ father
+Father: Morning, son. Help me keep an eye on the kiln today?
+Kael: Sure. What are you making?
+Father: Something special. You'll see.
+=> END
+
+~ sibling
+Sibling: Race you to the well!
+Kael: You'd lose.
+=> END

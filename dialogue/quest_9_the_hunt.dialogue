@@ -1,0 +1,34 @@
+~ start
+Mentor: Today you learn what sets a tamer apart from everyone else.
+Mentor: We track. We observe. We wait. Then — and only then — we act.
+Kael: Are we hunting something?
+Mentor: We're offering something a home.
+=> END
+
+~ den_found
+Mentor: There. The den.
+Mentor: The mother won't survive. But the young one can.
+Mentor: This is the moment, Kael. Everything I've taught you — it lives in your hands right now.
+=> END
+
+~ taming_prompt
+Mentor: Clear your mind. Feel the rhythm. Match it.
+=> END
+
+~ taming_success
+Mentor: You did it.
+Kael: It worked?
+Mentor: It always works when you stop trying to make it work.
+Mentor: Now — give it a name. That's yours from this moment on.
+=> END
+
+~ commands_lesson
+Mentor: Listen carefully. There are five commands every tamer must know.
+Mentor: Follow. Stay. Scout. Recall. Attack.
+Mentor: Your companion understands more than words — they understand your intent. But the words anchor that intent. Practice them.
+=> END
+
+~ quest_complete
+Mentor: You're a tamer now.
+Mentor: If I tell you to run, you run. No questions.
+=> END

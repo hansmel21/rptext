@@ -1,0 +1,9 @@
+~ start
+Mentor: The riverside fields. Find the long-leaf herbs — they're low to the ground, smell like pine. Bring me a bundle.
+Kael: How many?
+Mentor: Enough. You'll know when you have enough.
+=> END
+
+~ complete
+Mentor: This'll do. Leave them on the bench.
+=> END

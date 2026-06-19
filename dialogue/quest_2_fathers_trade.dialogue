@@ -1,0 +1,11 @@
+~ start
+Father: There you are. I need a few more handfuls of red clay from the shelf — and watch the fire under the kiln. I'll be right back.
+Kael: Got it.
+=> END
+
+~ complete
+Father: Perfect. Come here.
+Father: This is yours now. I made it from the clay the Chief gave me last harvest — strong stuff.
+Kael: It's beautiful.
+Father: Keep it close. Pottery outlasts the potter.
+=> END

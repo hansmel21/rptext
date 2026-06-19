@@ -1,0 +1,10 @@
+~ start
+Elder: My grandson left his seed pouches by the river path this morning. Old legs won't carry me that far today.
+Elder: Would you fetch them?
+Kael: Of course.
+=> END
+
+~ complete
+Elder: You're a good boy, Kael. Your mother raised you right.
+Elder: Here — from my garden. Don't argue.
+=> END
