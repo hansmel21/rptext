@@ -41,12 +41,12 @@ func _process(delta: float) -> void:
 		_hp_drain_timer += delta
 		if _hp_drain_timer >= HP_DRAIN_INTERVAL:
 			_hp_drain_timer -= HP_DRAIN_INTERVAL
-			var player := GameManager.get_player()
+			var player: CharacterBody2D = GameManager.get_player()
 			if player and player.has_method("take_damage"):
 				player.take_damage(1)
 
 func eat(food_type: String) -> void:
-	var restore := FOOD_RESTORE.get(food_type, 10.0)
+	var restore: float = FOOD_RESTORE.get(food_type, 10.0)
 	hunger = minf(hunger + restore, MAX_HUNGER)
 	_hp_drain_timer = 0.0
 	hunger_changed.emit(hunger, MAX_HUNGER)
