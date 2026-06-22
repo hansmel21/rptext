@@ -1,16 +1,19 @@
 extends Area2D
 
-@export var npc_name:         String = "Villager"
-@export var dialogue_resource: DialogueResource
-@export var dialogue_title:   String = "start"
-@export var quest_index:      int    = -1
+@export var npc_name:          String   = "Villager"
+@export var dialogue_resource: Resource               # assign a .dialogue file in the Inspector
+@export var dialogue_title:    String   = "start"
+@export var quest_index:       int      = -1
 
 var _talking: bool = false
 
 signal interaction_finished
 
 func interact() -> void:
-	if _talking or dialogue_resource == null:
+	if _talking:
+		return
+	if dialogue_resource == null:
+		_on_dialogue_finished()
 		return
 	_talking = true
 	var player := GameManager.get_player()

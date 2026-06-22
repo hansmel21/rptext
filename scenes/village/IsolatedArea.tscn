@@ -1,9 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://c000000000008"]
+[gd_scene load_steps=6 format=3 uid="uid://c000000000008"]
 
-[ext_resource type="PackedScene" path="res://scenes/characters/Player.tscn" id="1_playerscene"]
-[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn"            id="2_hudscene"]
+[ext_resource type="Script"      path="res://scripts/village/IsolatedArea.gd" id="0_script"]
+[ext_resource type="PackedScene" path="res://scenes/characters/Player.tscn"   id="1_playerscene"]
+[ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn"              id="2_hudscene"]
 
 [node name="IsolatedArea" type="Node2D"]
+script = ExtResource("0_script")
 
 [node name="World" type="TileMap" parent="."]
 format = 2
@@ -18,8 +20,15 @@ position = Vector2(80, 90)
 
 [node name="ManaTargets" type="Node2D" parent="YSort"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit"]
+size = Vector2(32, 16)
+
 [node name="AreaExit" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+position = Vector2(80, 160)
 
 [node name="ExitShape" type="CollisionShape2D" parent="AreaExit"]
+shape = SubResource("RectangleShape2D_exit")
 
 [node name="HUD" parent="." instance=ExtResource("2_hudscene")]

@@ -1,6 +1,44 @@
-[gd_scene load_steps=2 format=3 uid="uid://c000000000001"]
+[gd_scene load_steps=9 format=3 uid="uid://c000000000001"]
 
-[ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_player"]
+[ext_resource type="Script"  path="res://scripts/player/Player.gd"                 id="1_player"]
+[ext_resource type="Texture2D" path="res://assets/placeholders/player.png"          id="2_tex"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1"]
+animations = [{
+"frames": [{"duration": 1.0, "texture": ExtResource("2_tex")}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{"duration": 1.0, "texture": ExtResource("2_tex")}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{"duration": 1.0, "texture": ExtResource("2_tex")}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}, {
+"frames": [{"duration": 1.0, "texture": ExtResource("2_tex")}],
+"loop": true,
+"name": &"walk_side",
+"speed": 5.0
+}, {
+"frames": [{"duration": 1.0, "texture": ExtResource("2_tex")}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(10, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sword"]
+size = Vector2(14, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_interact"]
+radius = 16.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -8,20 +46,27 @@ collision_mask = 1
 script = ExtResource("1_player")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_1")
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_body")
 
 [node name="SwordHitbox" type="Area2D" parent="."]
-collision_layer = 7
-collision_mask = 8
+collision_layer = 64
+collision_mask = 4
 
 [node name="SwordShape" type="CollisionShape2D" parent="SwordHitbox"]
+shape = SubResource("RectangleShape2D_sword")
 
 [node name="InteractionZone" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 16
 
 [node name="InteractionShape" type="CollisionShape2D" parent="InteractionZone"]
+shape = SubResource("CircleShape2D_interact")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
